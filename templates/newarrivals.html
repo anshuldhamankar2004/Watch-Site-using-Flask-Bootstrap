@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+{% set fname= 'static/assets/product_img/' %}
+
+<h1 class="display-4 fw-bolder">New Arrivals</h1>
+
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      {% for product in new_arrivals %}
+        <div class="col mb-4">
+          <div class="card h-100 rounded-3">
+            <!-- Product image -->
+            <a href="/product/{{ product.slug }}">
+              <img class="card-img-top rounded-top" src="{{ fname + product.img_file }}" alt="{{ product.name }} Image">
+
+              <!-- Product details -->
+              <div class="card-body">
+                <div class="text-center">
+                  <!-- Product name -->
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <h4 class="text-center">{{ product.company }}</h4>
+                  <!-- Product reviews -->
+                  <div class="d-flex justify-content-center small text-warning mb-2">
+                    {{ product.disc }}
+                  </div>
+                  <hr>
+                  <!-- Product price -->
+                  <p class="card-text">₹{{ product.price }}</p>
+                </div>
+              </div>
+
+              <!-- Product actions -->
+              <div class="card-footer bg-transparent border-top-0 text-center">
+                <a class="btn btn-outline-dark" href="#">Add to Cart</a>
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body %}
+<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+                    <h1>Add/Edit Products.</h1>
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<a class="text-center d-flex align-items-center justify-content-center" href="/dashboard">
+    <button class="btn btn-primary text-uppercase">Dashboard Home</button>
+</a>
+<br>
+<a class="text-center d-flex align-items-center justify-content-center" href="/edit/0">
+    <button class="btn btn-primary text-uppercase">Log Out</button>
+</a>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+            <form id="contactForm" action="/edit/{{ name }}" method="post" data-sb-form-api-token="API_TOKEN">
+                <div class="form-floating">
+                    <input class="form-control" id="title" type="text" name="box_name" placeholder="Enter New Name..." value="{{ product.name }}" />
+                    <label for="title">Name</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="subtitle" type="text" name="disc" placeholder="Enter New Description..." value="{{ product.disc }}" />
+                    <label for="subtitle">Description</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="slug" type="text" name="slug" placeholder="Enter new Slug..." value="{{ product.slug }}">
+                    <label for="slug">Slug</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" id="content" name="price" placeholder="Enter new Price...">{{ product.price }}</textarea>
+                    <label for="content">Price</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="img_file" name="img_file" placeholder="Enter your link here..." value="{{ product.img_file }}" />
+                    <label for="img_file">IMG FILE</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="link" name="popular" placeholder="Popular TRUE OR FALSE" value="{{ product.popular }}" />
+                    <label for="link">Popular TRUE OR FALSE</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="link" name="new" placeholder="New TRUE OR FALSE" value="{{ product.new }}" />
+                    <label for="link">New TRUE OR FALSE</label>
+                </div>
+                <br />
+                <!-- Submit Button-->
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{
+  "parameters":
+  {
+    "local_server": "True",
+    "local_server": "True",
+    "local_uri": "mysql+pymysql://root:@localhost/ecom",
+    "prod_uri": "mysql+pymysql://root:@localhost/ecom",
+    "login_image":"login.svg",
+    "admin_username":"USERNAME",
+    "admin_password": "PASSWORD",
+    "upload_location":"C:\\Users\\ASUS\\PycharmProjects\\Ecommerce\\static\\assets\\product_img"
+  }
+}
